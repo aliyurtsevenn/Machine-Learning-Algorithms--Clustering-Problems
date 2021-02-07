@@ -1,7 +1,0 @@
-/media/a/DED9-BFB3/codes/machine_learning/deeplearning/my_raw_data.xlsx	# Type directory of your input data
-/home/a/Desktop/result.xlsx	# Type directory of your output data!
-Yes	# Your columns must be formed by only attributes you want for the classification! If you have also sample names type (Yes), If not Type (No)  
-No	# If your attributes are made up of only integers type (Yes), if not, type (No)
-Size,Shape	# Type which column names of your attributes, which are formed by  categorical data in comma separated way!, if you don't have, don't type and erase what is entered here!  
-500	# it is by default 300 iteration and around this, it takes the best classifier! But, increasing this can increase the accuracy of our classifier! If you have time, do this! 
-20	# Amount of time for generating the first best centroid classifiers!
