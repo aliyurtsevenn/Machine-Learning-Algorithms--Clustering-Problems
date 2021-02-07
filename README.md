@@ -1,6 +1,4 @@
-# Machine-Learning-Algorithms
-
-Here, I made a research on applying both supervised and unsupervised machine learning algorithms, their advantages and disadvantages, etc., using python.
+# Machine Learning Algorithms
 
 Machnine learning can be applied on classification, regression, or dimensionality reduction tasks of high dimensional datasets. It has multiple algorithms, classification ones can be groupped as supervised and unsupervised. Supervised algorithms are used to create models by using both attributes and labels. Attributes are basically the features which are used to train your model using a certain algorithm. On the ohter hand, the labels are the ones you want to predict. In supervised learning, these labels are used as pre-knowledge to train the algorithm. At the prediction process, which you try to find out which label your sample can be classified with given certain attributes. k-NN, Support vector machnines can be given as an example of supervised classification algorithms. Supervised learning processes are demonstrated below.
 
