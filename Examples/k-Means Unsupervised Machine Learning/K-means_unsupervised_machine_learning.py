@@ -104,64 +104,64 @@ if attribute_madeup=="No":
     for j in Categorical_feature:
         my_data_frame[j] = pd.Series(converter.fit_transform(my_data_frame[j].tolist()))
 
+
+#Lets convert dataframe to numpy array
+Attributes= np.array(my_data_frame)
 #
-# #Lets convert dataframe to numpy array
-# Attributes= np.array(my_data_frame)
-# #
-# #Let's make your data between -1 and 1.
-# Attributes=scale(Attributes)
+#Let's make your data between -1 and 1.
+Attributes=scale(Attributes)
+
+# # Shuffle the data!
+Attributes=shuffle(Attributes)
+
+
+# Shaping the data! according to the instance numbers!
+samples,features=Attributes.shape # This gives you have many features and samples you have
+
+# In order to find out how many clusters you have we can use elbow's rule!
+sse=[]
+for k in range(1,25):
+    clf=KMeans(n_clusters=k,init="k-means++",n_init=20,max_iter=500)
+    clf.fit(Attributes)
+    sse.append(clf.inertia_)
+
+kl = KneeLocator( range(1, 25), sse, curve="convex", direction="decreasing")
+k= kl.elbow
+
+
+'''
+At the end, you need to measure accuracy of your model! For this, you can use metric function of
+the sklearn library! There are many scores for the measuring the accuracy of unsupervised learning!
+These scores are found with a sophisticated mathematical calculations! We will write a function for
+accuracy scoring and call this function in the K-Means classifier model!
+
+Now, lets write the metric scoring function!
+'''
+
+'''
+Kmeans() parameters!
+
+n_clusters: Number of clusters
+init: Centroids are generated in random positions or in more equal distanced way! "random" or k-means++ (Play with this to see if accuracy change or not!) Result doesn't change a lot using K-Means++ you don't do the iteration many time!
+n_init: Amount of time for generating the first best centroid classifiers!
+max_iter: it is by default 300 iteration and around this, it takes the best classifier! But, increasing this can increase the accuracy of our classifier! If you have time, do this!
+'''
+K_means_clf=KMeans(n_clusters=k,init="k-means++",n_init=int(init),max_iter=int(max_iter))
+
+model= K_means_clf.fit(Attributes)
 #
-# # # Shuffle the data!
-# Attributes=shuffle(Attributes)
-#
-#
-# # Shaping the data! according to the instance numbers!
-# samples,features=Attributes.shape # This gives you have many features and samples you have
-#
-# # In order to find out how many clusters you have we can use elbow's rule!
-# sse=[]
-# for k in range(1,25):
-#     clf=KMeans(n_clusters=k,init="k-means++",n_init=20,max_iter=500)
-#     clf.fit(Attributes)
-#     sse.append(clf.inertia_)
-#
-# kl = KneeLocator( range(1, 25), sse, curve="convex", direction="decreasing")
-# k= kl.elbow
-#
-#
-# '''
-# At the end, you need to measure accuracy of your model! For this, you can use metric function of
-# the sklearn library! There are many scores for the measuring the accuracy of unsupervised learning!
-# These scores are found with a sophisticated mathematical calculations! We will write a function for
-# accuracy scoring and call this function in the K-Means classifier model!
-#
-# Now, lets write the metric scoring function!
-# '''
-#
-# '''
-# Kmeans() parameters!
-#
-# n_clusters: Number of clusters
-# init: Centroids are generated in random positions or in more equal distanced way! "random" or k-means++ (Play with this to see if accuracy change or not!) Result doesn't change a lot using K-Means++ you don't do the iteration many time!
-# n_init: Amount of time for generating the first best centroid classifiers!
-# max_iter: it is by default 300 iteration and around this, it takes the best classifier! But, increasing this can increase the accuracy of our classifier! If you have time, do this!
-# '''
-# K_means_clf=KMeans(n_clusters=k,init="k-means++",n_init=int(init),max_iter=int(max_iter))
-#
-# model= K_means_clf.fit(Attributes)
-# #
-# '''
-#
-# Note that, in these scores, the higher is the better, there is a mathematical terms and it is a little
-# complicated. Link to read these scores is
-#
-# https://scikit-learn.org/stable/modules/clustering.html#clustering-evaluation
-# '''
-# # The prediction is given below!
-# predicted= model.labels_
-# my_data["Labels"]=pd.Series(predicted)
-# # Let's sort our overall data
-# my_data.sort_values(by="Labels",ascending=True,inplace=True,ignore_index=True)
-#
-# # Let me export it into the output directory!
-# my_data.to_excel(output_path)
+'''
+
+Note that, in these scores, the higher is the better, there is a mathematical terms and it is a little
+complicated. Link to read these scores is
+
+https://scikit-learn.org/stable/modules/clustering.html#clustering-evaluation
+'''
+# The prediction is given below!
+predicted= model.labels_
+my_data["Labels"]=pd.Series(predicted)
+# Let's sort our overall data
+my_data.sort_values(by="Labels",ascending=True,inplace=True,ignore_index=True)
+
+# Let me export it into the output directory!
+my_data.to_excel(output_path)
