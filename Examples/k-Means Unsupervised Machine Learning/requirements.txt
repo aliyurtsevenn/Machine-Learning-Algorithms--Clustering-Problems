@@ -1,5 +1,0 @@
-numpy>=1.19.4
-pandas>=1.1.4
-sklearn>=0.0
-kneed>=0.7.0
-pathlib>=1.0.1
