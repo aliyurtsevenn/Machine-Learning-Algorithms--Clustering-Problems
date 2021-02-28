@@ -1,0 +1,9 @@
+/media/a/DED9-BFB3/codes/machine_learning/deeplearning/Examples/unsupervised_clustering/k-Means_clustering/my_raw_data.xlsx	# Type directory of your input data
+/home/a/Desktop/result.xlsx	# Type directory of your output data!
+Yes	# Your columns must be formed by only attributes you want for the classification! If you have also sample names type (Yes), If not Type (No)  
+No	# If your attributes are made up of only integers type (Yes), if not, type (No)
+Size,Shape	# Type which column names of your attributes, which are formed by  categorical data in comma separated way!, if you don't have, don't type and erase what is entered here!  
+\t	# If your input data is csv or txt file and the features are tab separated type(\t), if comma separated Type(,),if column separated Type(:), if semi column separated Type(;). If it is excell file, you can skip filling out this this.
+0.25	# Type epsilon value for DBSCAN model!
+12	# Type minimum sample number for a cluster!
+cosine	# Metric type, you should change these to have the highest Silhouette score. These can be, (‘cityblock’, ‘cosine’, ‘euclidean’, ‘l1’, ‘l2’, ‘manhattan’, etc. Look at https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise_distances.html#sklearn.metrics.pairwise_distances website for more info.)
