@@ -32,6 +32,20 @@ Number of points x Number of centroids x Number of iterations(re-centering the c
 It takes a lot of time if you have so many data points or features, but still, it is faster than some of the
 unsupervised clustering algorithms!
 '''
+import sys
+import subprocess
+
+# Let me first install the required packages!
+subprocess.check_call([sys.executable, '-m', 'pip', 'install',
+'numpy>=1.19.4'])
+subprocess.check_call([sys.executable, '-m', 'pip', 'install',
+'pandas>=1.1.4'])
+subprocess.check_call([sys.executable, '-m', 'pip', 'install',
+'sklearn>=0.0'])
+subprocess.check_call([sys.executable, '-m', 'pip', 'install',
+'kneed>=0.7.0'])
+subprocess.check_call([sys.executable, '-m', 'pip', 'install',
+'pathlib>=1.0.1'])
 
 import numpy as np
 from sklearn.preprocessing import scale
