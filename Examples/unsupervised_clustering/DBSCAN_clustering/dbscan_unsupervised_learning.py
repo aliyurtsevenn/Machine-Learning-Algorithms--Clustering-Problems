@@ -18,7 +18,26 @@ Data density is very important and it shows how many items of a information set 
 Selecting these items, which stand for attributes in the machine learning is called as data sampling
 '''
 
+import sys
+import subprocess
 
+# Let me first install the suitable packages!! 
+subprocess.check_call([sys.executable, '-m', 'pip', 'install',
+'future'])
+subprocess.check_call([sys.executable, '-m', 'pip', 'install',
+'numpy>=1.19.4'])
+subprocess.check_call([sys.executable, '-m', 'pip', 'install',
+'pandas>=1.1.4'])
+subprocess.check_call([sys.executable, '-m', 'pip', 'install',
+'pandas>=0.0'])
+subprocess.check_call([sys.executable, '-m', 'pip', 'install',
+'pathlib>=1.0.1'])
+subprocess.check_call([sys.executable, '-m', 'pip', 'install',
+'matplotlib>=3.3.3'])
+subprocess.check_call([sys.executable, '-m', 'pip', 'install',
+'scipy>=1.5.4'])
+
+# Let me import the packages!
 from sklearn import metrics
 import pandas as pd
 from sklearn.cluster import DBSCAN
@@ -36,53 +55,7 @@ import tkinter as tk
 from os.path import expanduser
 import os
 
-
-# Let me install pip3
-
-os.system("sudo apt-get install python3-pip")
-
-# Let me install virtualenv
-os.system("sudo pip3 install virtualenv ")
-
-# Let me create a virtual environment
-os.system("virtualenv -p /usr/bin/python3 venv")
-
-# Let me activate the environment
-os.system("source venv/bin/activate")
-
-# Let me go into the environment and add this packages here,
-
-os.system("cd venv/")
-
-# Let me install tkinter
-os.system("sudo apt-get install python3-tk")
-
-# Let me install numpy>=1.19.4
-
-os.system("pip3 install numpy>=1.19.4 ")
-
-# Let me install pandas>=1.1.4
-
-os.system("pip3 install pandas>=1.1.4")
-
-# Let me install sklearn>=0.0
-
-os.system("pip3 install sklearn>=0.0")
-
-# Let me install pathlib>=1.0.1
-
-os.system("pip3 install pathlib>=1.0.1")
-
-# Let me install matplotlib>=3.3.3
-
-os.system("pip3 install matplotlib>=3.3.3")
-
-# Let me install scipy>=1.5.4
-
-os.system("pip3 install scipy>=1.5.4")
-
-os.system("cd ..")
-
+# Let me now take the parameters! 
 path_parameter_file=os.path.join(pathlib.Path(__file__).parent.absolute(),'parameters.txt')
 
 if os.path.exists(path_parameter_file)==False:
