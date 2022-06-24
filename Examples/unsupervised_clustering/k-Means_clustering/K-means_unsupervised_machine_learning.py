@@ -47,6 +47,7 @@ subprocess.check_call([sys.executable, '-m', 'pip', 'install',
 subprocess.check_call([sys.executable, '-m', 'pip', 'install',
 'pathlib>=1.0.1'])
 
+# Let me install the packages!
 import numpy as np
 from sklearn.preprocessing import scale
 from sklearn.datasets import load_digits
