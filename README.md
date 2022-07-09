@@ -25,5 +25,3 @@ In unsupervised learning, on the other hand, you have no preknowledge of the lab
 8. Find the best parameters for your model 
 9. Apply your model onto a new data for prediction
 
-UNSUPERVISED LEARNING
----------------------
